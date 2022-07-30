@@ -474,9 +474,9 @@ body{
     .currentPlayer{
         max-width: 120px;
         position: absolute;
-        top: 95%;
+        top: 90%;
         left: 0;
-        margin-left: 40px;
+        margin-left: 25px;
         align-items: left;
         font-size: 16px;
         display: flex;
@@ -485,10 +485,10 @@ body{
     .stat{
         display: flex;
         align-items:left;
-        font-size: 15px;
+        font-size: 12px;
         position: absolute;
-        top: 105%;
-        left: 0%;
+        top: 95%;
+        left: 2%;
         margin-left: 160px;
         background-color: rgba(240, 248, 255, 0);
         backdrop-filter: blur(0px);
