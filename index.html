@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tik tak toe</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Neonderthaw&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Splash&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Londrina+Sketch&display=swap" rel="stylesheet">
+
+</head>
+<body onLoad="initClock()">
+
+    <div class="content">
+
+        <div id="title">Tic Tac Toe</div>
+        
+        <div class="currentPlayer">
+            <span> Сейчас ходит: <span id="curPlayer">X</span></span>
+        </div>
+
+        <div class="area" id="area"></div>
+        <div class="stat">
+            <table>
+                <th colspan="2">Статистика</th>
+                <tr>
+                    <td>X</td>
+                    <td><span id="sX">0</span></td>
+                </tr>
+                <tr>
+                    <td>O</td>
+                    <td><span id="sO">0</span></td>
+                </tr>
+                <tr>
+                    <td>Ничеечка</td>
+                    <td><span id="sD">0</span></td>
+                </tr>
+
+            </table>
+        </div>
+    
+        <div id="modal-result">
+            <div id="overlay"></div>
+            <div id="modal-window">
+                <div id="modal-window__content">Ячейка занята. Чёрт, ты куда тыкаешь?<br>Получи штраф - пропуск хода</div>
+                <div id="btn-close">Продолжить</div>
+            </div>
+        </div>
+       
+    </div>
+    <div id="timedate">
+        <a id="mon">January</a>
+        <a id="d">1</a>,
+        <a id="y">0</a><br />
+        <a id="h">12</a> :
+        <a id="m">00</a>:
+        <a id="s">00</a>:
+        <a id="mi">000</a>
+    </div>
+    <script src="/js/script.js"></script>
+</body>
+</html>
