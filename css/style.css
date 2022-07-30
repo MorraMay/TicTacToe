@@ -1,0 +1,620 @@
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+
+input,button,textarea{font-family:inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+
+body{
+    background: url(../img/wall.png);
+    background-size: cover;
+}
+
+.content {
+    
+    display: flex;
+    margin: 100px 50px 50px 50px;
+    font-family: 'Londrina Sketch';
+    color: rgb(255, 255, 255);
+}
+#title{
+   
+ 
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    font-family:'Splash';
+    text-shadow: 2px 3px 10px rgb(192, 7, 7);
+    font-size: 70px;
+    font-weight: 400;
+   
+}
+
+#area{
+    position: relative;
+    top: 50px;
+    right: 0px;
+    width: 420px;
+    border: 10px solid rgb(22, 142, 255);
+    border-radius: 10px;
+    box-shadow: 0 0px  35px rgb(0, 59, 168),
+    0 0 10px rgb(255, 255, 255),
+    0 0 15px rgb(0, 59, 168);
+    margin:  0 auto;
+    font-size: 0;
+    animation:  neon 5s infinite alternate-reverse ;
+}
+@keyframes neon{
+    0%{
+        opacity: 100% ;
+	}
+
+	5%{
+        opacity: 100% ;
+    }
+
+	10%{
+        opacity: 100% ;
+    }
+	15%{
+        opacity: 100% ;
+    }
+	20%{
+        opacity: 100% ;
+    }
+	25%{
+        opacity: 60% ;
+    }
+	30%{
+        opacity: 100% ;
+    }
+	35%{
+        opacity: 700% ;
+    }
+	40%{
+        opacity: 100% ;
+    }
+	45%{
+        opacity: 80% ;
+    }
+	50%{
+        opacity: 100% ;
+    }
+    55%{
+        opacity: 90% 
+    }
+	60%{
+        opacity: 7% 
+    }
+	64%{
+        opacity: 100% 
+    }
+	68%{
+        opacity: 7% 
+    }
+	70%{
+        opacity: 100% 
+    }
+	75%{
+        opacity: 90% 
+    }
+	80%{
+        opacity: 100% 
+    }
+	85%{
+        opacity: 90% 
+    }
+	90%{
+        opacity: 100% 
+    }
+	95%{
+		
+        opacity: 90% 
+    }
+    100%{
+		opacity: 100%;
+       
+    }
+	
+}
+
+.cell {
+    width: 130px;
+    height: 130px;
+    line-height: 105px;
+    text-align: center;
+    display: inline-block;
+    font-size: 130px;
+    font-weight: 600;
+    border: 5px solid #9bff3e;
+    box-shadow: 0 0px  25px #9bff3e;
+    text-shadow: 0 0 10px #9bff3e,
+    0 0 10px #9bff3e,
+    0 0 15px #9bff3e;
+    cursor: pointer;
+    vertical-align: middle;
+    transition: all 0.6s ease; 
+       
+}
+
+.cell:hover{
+    background-color: rgba(255, 0, 21, 0.281);
+    transition: all 0.6s ease;
+   
+}
+
+.currentPlayer{
+    width: 300px;
+    position: relative;
+    left: 10px;
+    top: 125px;
+    font-size: 45px;
+    display: flex;
+}
+@keyframes swing{
+	0%{
+		transform: rotateZ(2deg);
+	}
+	100%{
+		transform: rotateZ(-2deg);
+	}
+}
+.stat{
+    display: flex;
+    align-items: center;
+    font-size: 27px;
+    position: relative;
+    top: 120px;
+    background-color: rgba(240, 248, 255, 0);
+    backdrop-filter: blur(5px);
+    max-height: 280px;
+    transition: all 0.6s ease;
+    border-radius: 10px;
+}
+.stat:hover{
+    animation: swing 1.5s infinite alternate cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    cursor: pointer;
+    transition: all 0.6s ease;
+    box-shadow: 0 0 15px #fff;
+}
+.stat table {
+    border-collapse: #000;
+}
+
+.stat table, .stat th, .stat id {
+    border: 4px solid rgb(243, 25, 25);
+    border-radius: 10px;
+    padding: 30px;
+    box-shadow: 2px 3px 5px rgb(0, 0, 0);
+    text-align: center;
+}
+ .stat td{
+    position: relative;
+    top: 10px;
+ }
+#modal-result{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    transition: all 0.3s ease;
+}
+
+#overlay{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.144);
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+#modal-window{
+    width: 400px;
+    height: 250px;
+    box-shadow: 0px 3px 5px #000;
+    background-color: rgb(15, 114, 201);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+#btn-close{
+    width: 200px;
+    height: 40px;
+    position: relative;
+    bottom: 20px;
+    background-color: rgb(5, 231, 118);
+    border-radius: 50px;
+    color: rgb(255, 255, 255);
+    border: 3px solid rgba(0, 0, 0, 0.212);
+    text-align: center;
+    cursor: pointer;
+    font-size: 22px;
+    transition: all 0.6s ease;
+}
+#btn-close:hover{
+    height: 38px;
+    transition: all 0.6s ease;
+    background-color: rgb(0, 167, 83);
+    bottom: 18px;
+}
+#modal-window__content{
+    font-size: 25px;
+    max-width: 250px;
+    text-align: center;
+    margin-top: 25px;
+    text-shadow: 2px 2px 2px #000;
+
+}
+
+#timedate {
+    font: small-caps lighter 43px/150% "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    text-align:left;
+    width: 25%;
+    margin: 0px auto;
+    color:#fff;
+    border-left: 3px solid rgb(243, 25, 25);
+    padding: 20px;
+    position: relative;
+    right: 420px;
+    bottom: 260px;
+  }
+
+/*...........Adaptive 991px.................*/
+@media (max-width: 991px){
+    .content {
+        display: flex;
+        flex-direction: column;
+        margin: 50px auto;
+        font-family: 'Londrina Sketch';
+        color: rgb(255, 255, 255);
+        max-height: 500px;
+    }
+    #title{
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        align-items: center;
+        font-family:'Splash';
+        text-shadow: 2px 3px 10px rgb(192, 7, 7);
+        font-size: 50px;
+        font-weight: 400;
+       
+    }
+    
+    #area{
+        position: absolute;
+        top: 20%;
+        left: 0%;
+     
+        width: 420px;
+        border: 10px solid rgb(22, 142, 255);
+        border-radius: 10px;
+        box-shadow: 0 0px  35px rgb(0, 59, 168),
+        0 0 10px rgb(255, 255, 255),
+        0 0 15px rgb(0, 59, 168);
+        margin:  0 auto;
+        font-size: 0;
+        animation:  neon 5s infinite alternate-reverse ;
+    }
+   
+    .cell {
+        width: 130px;
+        height: 130px;
+        line-height: 105px;
+        text-align: center;
+        display: inline-block;
+        font-size: 130px;
+        font-weight: 600;
+        border: 5px solid #9bff3e;
+        box-shadow: 0 0px  25px #9bff3e;
+        text-shadow: 0 0 10px #9bff3e,
+        0 0 10px #9bff3e,
+        0 0 15px #9bff3e;
+        cursor: pointer;
+        vertical-align: middle;
+        transition: all 0.6s ease; 
+           
+    }
+    
+    .cell:hover{
+        background-color: rgba(255, 0, 21, 0.281);
+        transition: all 0.6s ease;
+       
+    }
+    
+    .currentPlayer{
+        max-width: 120px;
+        position: absolute;
+        top: 85%;
+        left: 0;
+        margin-left: 30px;
+        align-items: left;
+        font-size: 30px;
+        display: flex;
+    }
+
+    .stat{
+        display: flex;
+        align-items:left;
+        font-size: 20px;
+        position: absolute;
+        top: 95%;
+        left: 0%;
+        margin-left: 200px;
+        background-color: rgba(240, 248, 255, 0);
+        backdrop-filter: blur(0px);
+        max-height: 0px;
+       
+        transition: all 0.6s ease;
+        border-radius: 10px;
+    }
+    .stat:hover{
+        animation: swing 1.5s infinite alternate cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        cursor: pointer;
+        transition: all 0.6s ease;
+        box-shadow: 0 0 15px #fff;
+    }
+    .stat table {
+        border-collapse: #000;
+    }
+    
+    .stat table, .stat th, .stat id {
+        border: 4px solid rgb(243, 25, 25);
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 2px 3px 5px rgb(0, 0, 0);
+        text-align: center;
+    }
+     .stat td{
+        position: relative;
+        top: 10px;
+     }
+     #timedate {
+        display: none;
+      }
+    
+}
+
+/*...........Adaptive 460px.................*/
+@media (max-width: 460px){
+    #title{
+        position: absolute;
+        top: 10%;
+        left: 0%;
+        margin-left: 100px;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        align-items: center;
+        font-family:'Splash';
+        text-shadow: 2px 3px 10px rgb(192, 7, 7);
+        font-size: 40px;
+        font-weight: 300;
+    }
+}
+
+
+
+/* // first time
+setClock();
+// Update every 1000 ms
+setInterval(setClock, 1000);
+
+const switchTheme = (evt) => {
+	const switchBtn = evt.target;
+	if (switchBtn.textContent.toLowerCase() === "light") {
+		switchBtn.textContent = "dark";
+		// localStorage.setItem("theme", "dark");
+		document.documentElement.setAttribute("data-theme", "dark");
+	} else {
+		switchBtn.textContent = "light";
+		// localStorage.setItem("theme", "light"); //add this
+		document.documentElement.setAttribute("data-theme", "light");
+	}
+};
+
+const switchModeBtn = document.querySelector(".switch-btn");
+switchModeBtn.addEventListener("click", switchTheme, false);
+
+let currentTheme = "dark";
+// currentTheme = localStorage.getItem("theme")
+// 	? localStorage.getItem("theme")
+// 	: null;
+
+if (currentTheme) {
+	document.documentElement.setAttribute("data-theme", currentTheme);
+	switchModeBtn.textContent = currentTheme;
+}
+
+
+
+
+<div class="page-header"> Analog Clock </div>
+        <div class="clock">
+	        <div class="hour"></div>
+	        <div class="min"></div>
+	        <div class="sec"></div>
+        </div>
+        <div class="switch-cont">
+	        <button class="switch-btn"> Light </button>
+        </div>
+    
+        <div id="modal-result">
+            <div id="overlay"></div>
+            <div id="modal-window">
+                <div id="modal-window__content">Ячейка занята. Чёрт, куда ты тыкаешь?<br>Получи штраф - пропуск хода!</div>
+                <div id="btn-close">Продолжить</div>
+            </div>
+        </div>
+
+
+
+
+        :root {
+	--main-bg-color: #fff;
+	--main-text-color: #888888;
+}
+
+[data-theme="dark"] {
+	--main-bg-color: #1e1f26;
+	--main-text-color: #ccc;
+}
+
+
+
+
+
+body {
+	margin: 0;
+	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 16px;
+	background-color: var(--main-bg-color);
+	position: relative;
+	transition: all ease 0.2s;
+}
+.page-header {
+	font-size: 2rem;
+	color: var(--main-text-color);
+	padding: 2rem 0;
+	font-family: monospace;
+	text-transform: uppercase;
+	letter-spacing: 4px;
+	transition: all ease 0.2s;
+}
+
+.clock {
+	min-height: 18em;
+	min-width: 18em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: var(--main-bg-color);
+	background-image: url("https://imvpn22.github.io/analog-clock/clock.png");
+	background-position: center center;
+	background-size: cover;
+	border-radius: 50%;
+	border: 4px solid var(--main-bg-color);
+	box-shadow: 0 -15px 15px rgba(255, 255, 255, 0.05),
+		inset 0 -15px 15px rgba(255, 255, 255, 0.05), 0 15px 15px rgba(0, 0, 0, 0.3),
+		inset 0 15px 15px rgba(0, 0, 0, 0.3);
+	transition: all ease 0.2s;
+}
+.clock:before {
+	content: "";
+	height: 0.75rem;
+	width: 0.75rem;
+	background-color: var(--main-text-color);
+	border: 2px solid var(--main-bg-color);
+	position: absolute;
+	border-radius: 50%;
+	z-index: 1000;
+	transition: all ease 0.2s;
+}
+.hour,
+.min,
+.sec {
+	position: absolute;
+	display: flex;
+	justify-content: center;
+	border-radius: 50%;
+}
+.hour {
+	height: 10em;
+	width: 10em;
+}
+.hour:before {
+	content: "";
+	position: absolute;
+	height: 50%;
+	width: 6px;
+	background-color: var(--main-text-color);
+	border-radius: 6px;
+}
+.min {
+	height: 12em;
+	width: 12em;
+}
+.min:before {
+	content: "";
+	height: 50%;
+	width: 4px;
+	background-color: var(--main-text-color);
+	border-radius: 4px;
+}
+.sec {
+	height: 13em;
+	width: 13em;
+}
+.sec:before {
+	content: "";
+	height: 60%;
+	width: 2px;
+	background-color: #f00;
+	border-radius: 2px;
+}
+
+
+.switch-cont {
+	margin: 2em auto;
+
+    
+	bottom: 0;
+}
+.switch-cont .switch-btn {
+	font-family: monospace;
+	text-transform: uppercase;
+	outline: none;
+	padding: 0.5rem 1rem;
+	background-color: var(--main-bg-color);
+	color: var(--main-text-color);
+	border: 1px solid var(--main-text-color);
+	border-radius: 0.25rem;
+	cursor: pointer;
+	transition: all ease 0.3s;
+}
+*/
+
+
